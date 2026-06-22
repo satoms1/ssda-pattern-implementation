@@ -1,1 +1,17 @@
+/** CHANGE: Created HDMIPlugAdapter so HDMIPlug can be used through the VideoPlug interface.
+Reason: Adapter pattern lets VideoSocket depend on VideoPlug while still using HDMIPlug's digitalDisplay(). **/
 
+public class HDMIPlugAdapter implements VideoPlug {
+
+    private HDMIPlug hdmiPlug;
+
+    public HDMIPlugAdapter(HDMIPlug hdmiPlug) {
+        this.hdmiPlug = hdmiPlug;
+    }
+
+    /** CHANGE: display() now adapts the VideoPlug interface to HDMIPlugs's digitalDisplay().
+    Reason: VideoSocket calls display(), but the required behavior must come from HDMIPlug.digitalDisplay(). **/
+    public display(int width, int height) {
+        hdmiPlug.digitalDisplay();
+    }
+}
