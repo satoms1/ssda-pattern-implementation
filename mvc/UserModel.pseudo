@@ -1,5 +1,5 @@
-/** CHANGE: Created UserModel to contain data and database operations.
-Reason: MVC places business logic and persistence inside the Model. **/
+/** CHANGE: Created UserModel to contain data and database operations, as well as to separate the model interface.
+Reason: MVC places business logic and persistence inside the model. **/
 
 public class UserModel {
 
