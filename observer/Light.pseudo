@@ -5,7 +5,9 @@ public class Light{
 		this.color = color;
 	}
 
-	// light turns on with specified color for 1 second	
-	public void turnOn(){
+	/** CHANGE: turnOn() is now the observer response method.
+	Reason: Button calls this when notifying registered Lights. **/
+	public void turnOn() {
+		print(color + " light turned on");
 	}
 }	
