@@ -5,16 +5,16 @@
 
 public class VideoSocket {
 
-	public main(){
-		// plug MUST be of type VideoPlug
-		VideoPlug plug = new VGAPlug();
+	public main() {
 
-		// call plug.display() 
+		/** CHANGE: Use VideoPlug reference with HDMIPlugAdapter instead of directly using VGAPlug.
+		Reason: VideoSocket must only use the VideoPlug interface, while the adapter redirects display() to HDMIPlug.digitalDisplay(). **/
+		VideoPlug plug = new HDMIPlugAdapter(new HDMIPlug());
+
 		plug.display(1024, 768);
 
-		// use plug in a method which only takes objects
-		// of type VideoPlug (i.e., it can't take HDMIPlugs)
-		// This line MUST be run on the plug
+		/** CHANGE: Pass the adapter object anywhere a VideoPlug is required.
+		Reason: Confirms the HDMIPlug is being used through the VideoPlug interface, not directly. **/
 		someOtherClass.plugDiagnostic(plug);
 	}
-}	
+}
