@@ -1,0 +1,12 @@
+/** CHANGE: Created RegisterView to generate output shown to the user.
+Reason: mvc requires presentation logic to be separated from business logic. **/
+
+public class RegisterView {
+
+    public showWelcom(username) {
+        echo "<h1>Welcome " + username + "</h1>";
+    }
+    public showError(message) {
+        echo "<h1 style='color:red'>" + message + "</h1>";
+    }
+}
