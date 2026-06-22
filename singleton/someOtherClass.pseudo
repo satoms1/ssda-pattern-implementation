@@ -1,7 +1,11 @@
 public SomeOtherClass{
 
-	public main(){
-		Logger l = new Logger();
-		l.info("hello from some other class!");
+	public main() {
+
+		/** CHANGE: Access same singleton Logger instance.
+		Reason: All classes must share one Logger object. **/
+		Logger l = Logger.getInstance();
+
+		l.info("Hello from some Other Class!");
 	}
 }
