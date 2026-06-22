@@ -1,6 +1,25 @@
 public class Button {
 
-	public void press() {
-		
-	}
+		/** CHANGE: Added observer collection.
+		Reason: Observer pattern requires the subject to maintain a list of observers. **/
+		private List<Light> observers;
+
+		/** CHANGE: Initialize observer list.
+		Reason: The button must track Lights that want notifications. **/
+		public Button() {
+			observers = new List<Light>();
+		}
+		/** CHANGE: Added registerObserver().
+		Reason: Allows any Light object to subscribe to Button press events. **/
+		public void registerObserver(Light light) {
+			observers.add(light);
+		}
+		/** CHANGE: Notify all observers when button is pressed.
+		Reason: Observer pattern broadcasts state chnages to all registered observers. **/
+		public void press() {
+
+			foreach(Light light in observers) {
+				light.turnOn();
+			}
+		}
 }
