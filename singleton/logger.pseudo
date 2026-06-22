@@ -1,11 +1,27 @@
 public class Logger {
-	private String log;
-	// Constructor
-	public Logger(){
-	}
 
+	/** CHANGE: Added static instance variable.
+	Reason: Singleton pattern requires one shared instance. **/
+	private static Logger instance;
+
+	private String log;
+
+	/** CHANGE: Made constructor private.
+	Reason: Prevents other classes from creating Logger objects directly. **/
+	private Logger() {
+	]
+
+	/** CHANGE: Added getInstance().
+	Reason: Provides access to the single Logger object. **/
+	public static Logger getInstance(0 {
+
+		if(instance == null) {
+			instance = new Logger();
+		}
+		return instance;
+	}
 	// Log something
-	public info(String information){
+	public info(String information) {
 		this.log.append(information);
 	}
 }
