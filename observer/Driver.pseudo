@@ -2,19 +2,20 @@ public class Driver {
 	
 	public main(){
 
-	// create a button
+		Button button = new Button();
 
-	// create a red light
+		Light red = new Light("Red");
+		Light green = new Light("Green");
+		Light blue = new Light("Blue");
 
-	// create a green light
+		/** CHANGE: Registered Lights as observers.
+		Reason: Observer pattern requires observers to subscribe to the subject. **/
+		button.registerObserver(red);
+		button.registerObserver(green);
+		button.registerObserver(blue);
 
-	// create a blue light
-
-	// have the blue light and the red light listen for the button
-
-	// press the button. Blue and red light should call turnOn in response
-	// NOTE: your Button class should be generic - do not hard-code these 
-	// lights into the Button class.
-
+		/** CHANGE: Pressing the button, now automatically notifies all observers.
+		Reason: Subject broadcasts event to every registered light. **/
+		button.press();
 	}
 }
