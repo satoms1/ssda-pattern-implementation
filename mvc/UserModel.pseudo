@@ -1,0 +1,16 @@
+/** CHANGE: Created UserModel to contain data and database operations.
+Reason: MVC places business logic and persistence inside the Model. **/
+
+public class UserModel {
+
+    public createUser(username, password) {
+
+        db = getDatabase("myHost", "myPassword", "myDb");
+
+        success = db.query(
+            "INSERT INTO users(username,password) VALUES(username,password)"
+        );
+
+        return success;
+    }
+}
